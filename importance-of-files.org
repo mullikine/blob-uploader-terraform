@@ -1,7 +1,7 @@
 * =docker-compose.yml=
 $MYGIT/mullikine/blob-uploader/docker-compose.yml
 
-This is used for testing, instead of =ECR=.
+This is used for testing locally, instead of =ECR=, which is used in production.
 
 * application-load-balancer.tf
 * autoscaling-group.tf
