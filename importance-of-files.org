@@ -4,6 +4,12 @@ $MYGIT/mullikine/blob-uploader/docker-compose.yml
 
 This is used for testing locally, instead of =ECR=, which is used in production.
 
+Test if it is running after starting docker compose.
+
+#+BEGIN_SRC bash -n :i bash :async :results verbatim code
+  docker exec -it blob-uploader_blobapp_1 wget -O - localhost:3000
+#+END_SRC
+
 * $MYGIT/mullikine/blob-uploader-terraform
 ** application-load-balancer.tf
 ** autoscaling-group.tf
