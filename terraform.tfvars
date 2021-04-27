@@ -6,7 +6,7 @@ region= "eu-west-1"
 blob_uploader_app_image= "chrishowejones/blob-uploader-app:latest"
 
 # no need to change these unless you want to
-blob_uploader_vpc = "film_ratings_vpc"
+blob_uploader_vpc = "blob_uploader_vpc"
 blob_uploader_network_cidr = "210.0.0.0/16"
 blob_uploader_public_01_cidr = "210.0.0.0/24"
 blob_uploader_public_02_cidr = "210.0.10.0/24"

@@ -2,7 +2,7 @@ resource "aws_lb" "blob_uploader_nw_load_balancer" {
   name               = "blob-uploader-nw-load-balancer"
   internal           = true
   load_balancer_type = "network"
-  subnets            = [aws_subnet.blob_uploader_public_sn_01.id, aws_subnet.film_ratings_public_sn_02.id]
+  subnets            = [aws_subnet.blob_uploader_public_sn_01.id, aws_subnet.blob_uploader_public_sn_02.id]
 
   tags = {
     Name = "blob-uploader-nw-load-balancer"

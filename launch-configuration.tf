@@ -23,6 +23,6 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
                                   mkdir -p /mnt/efs/postgres
                                   cd /mnt
                                   sudo yum install -y amazon-efs-utils
-                                  sudo mount -t efs ${aws_efs_mount_target.filmdbefs-mnt.0.dns_name}:/ efs
+                                  sudo mount -t efs ${aws_efs_mount_target.blobdbefs-mnt.0.dns_name}:/ efs
                                   EOF
   }

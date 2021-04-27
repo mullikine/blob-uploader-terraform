@@ -6,7 +6,7 @@ data "aws_ecs_task_definition" "blob_uploader_db" {
 resource "aws_ecs_task_definition" "blob_uploader_db" {
   family                = "blob_uploader_db"
   volume {
-    name = "filmdbvolume"
+    name = "blobdbvolume"
     host_path = "/mnt/efs/postgres"
   }
   network_mode = "awsvpc"
@@ -24,11 +24,11 @@ resource "aws_ecs_task_definition" "blob_uploader_db" {
     "environment": [
       {
         "name": "POSTGRES_DB",
-        "value": "filmdb"
+        "value": "blobdb"
       },
       {
         "name": "POSTGRES_USER",
-        "value": "filmuser"
+        "value": "blobuser"
       },
       {
         "name": "POSTGRES_PASSWORD",
@@ -39,7 +39,7 @@ resource "aws_ecs_task_definition" "blob_uploader_db" {
         {
           "readOnly": null,
           "containerPath": "/var/lib/postgresql/data",
-          "sourceVolume": "filmdbvolume"
+          "sourceVolume": "blobdbvolume"
         }
     ],
     "logConfiguration": {

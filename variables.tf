@@ -20,7 +20,7 @@ variable "region" {
 }
 
 variable "availability_zone" {
-  description = "availability zone used for the film ratings, based on region"
+  description = "availability zone used for the blob uploader, based on region"
   default = {
     eu-west-1 = "eu-west-1"
   }
@@ -31,17 +31,17 @@ variable "db_password" {
 }
 
 variable "blob_uploader_app_image" {
-  description = "Docker image for the film ratings application"
+  description = "Docker image for the blob uploader application"
 }
 
 ########################### Test VPC Config ################################
 
 variable "blob_uploader_vpc" {
-  description = "VPC for Film Ratings environment"
+  description = "VPC for Blob Uploader environment"
 }
 
 variable "blob_uploader_network_cidr" {
-  description = "IP addressing for Film Ratings Network"
+  description = "IP addressing for Blob Uploader Network"
 }
 
 variable "blob_uploader_public_01_cidr" {

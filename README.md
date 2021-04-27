@@ -1,7 +1,7 @@
-# Film Ratings Terraform
+# Blob Uploader Terraform
 
 This repo has the terraform definitions to set up an AWS cluster for
-the Film Ratings app from my [blog](https://circleci.com/blog/deploy-a-clojure-web-application-to-aws-using-terraform/)
+the Blob Uploader app from my [blog](https://circleci.com/blog/deploy-a-clojure-web-application-to-aws-using-terraform/)
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ Install Terraform. This repo as been tested on version v0.12.2
 
 Set up an AWS account and add a new IAM user with admin
 privilege. Generate a new key pair for that user called
-`blob_uploader_key_pair`. Copy the `film_ratings_key_pair.pem` to your
+`blob_uploader_key_pair`. Copy the `blob_uploader_key_pair.pem` to your
 `~/.ssh` directory and set the permissions like so: `chmod 400
 ~/.ssh/blob_uploader_key_pair.pem`.
 

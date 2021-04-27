@@ -1,7 +1,7 @@
 resource "aws_alb" "blob_uploader_alb_load_balancer" {
   name                = "blob-uploader-alb-load-balancer"
   security_groups     = [aws_security_group.blob_uploader_public_sg.id]
-  subnets             = [aws_subnet.blob_uploader_public_sn_01.id, aws_subnet.film_ratings_public_sn_02.id]
+  subnets             = [aws_subnet.blob_uploader_public_sn_01.id, aws_subnet.blob_uploader_public_sn_02.id]
 
   tags = {
     Name = "blob-uploader-alb-load-balancer"
@@ -45,7 +45,7 @@ resource "aws_alb_listener" "alb-listener" {
   }
 }
 
-resource "aws_autoscaling_attachment" "asg_attachment_film_rating_app" {
+resource "aws_autoscaling_attachment" "asg_attachment_blob_uploader_app" {
   autoscaling_group_name = "blob-uploader-autoscaling-group"
   alb_target_group_arn   = aws_alb_target_group.blob_uploader_app_target_group.arn
   depends_on = [ "aws_autoscaling_group.blob-uploader-autoscaling-group" ]

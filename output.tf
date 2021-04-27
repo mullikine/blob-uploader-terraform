@@ -52,5 +52,5 @@ output "blob-uploader-db-target-group-arn" {
 
 output "mount-target-dns" {
   description = "Address of the mount target provisioned"
-  value = aws_efs_mount_target.filmdbefs-mnt.0.dns_name
+  value = aws_efs_mount_target.blobdbefs-mnt.0.dns_name
 }
