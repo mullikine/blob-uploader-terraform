@@ -1,7 +1,7 @@
 resource "aws_launch_configuration" "ecs-launch-configuration" {
   name                        = "ecs-launch-configuration"
   image_id                    = data.aws_ami.latest_ecs.id
-  instance_type               = "t2.medium"
+  instance_type               = "t2.micro"
   iam_instance_profile        = aws_iam_instance_profile.ecs-instance-profile.id
 
   root_block_device {
