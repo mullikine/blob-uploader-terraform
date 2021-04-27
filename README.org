@@ -16,6 +16,7 @@ the permissions like so: =chmod 400 ~/.ssh/blob_uploader_key_pair.pem=.
 
 $HOME/hc/aws/26.04.21__1619395768-cd-mygit-mullikine-code-org-tidbits-aws-iam-create-access-key-user-name-administrator-ci.txt
 $HOME/hc/aws/26.04.21__1619409964-cd-mygit-mullikine-code-org-tidbits-aws-ec2-create-key-pair-key-name-adminkey-zsh.txt
+$NOTES/personal/passwords/aws-administrator.txt
 
 ** Initialise Terraform
 
