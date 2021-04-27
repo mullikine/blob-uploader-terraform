@@ -1,3 +1,6 @@
+* TODO Modify this configuration to use Ubuntu 20.04
+$MYGIT/mullikine/blob-uploader-terraform/launch-configuration.tf
+
 * TODO Create the cluster
 #+BEGIN_SRC sh -n :sps bash :async :results none
   cd $MYGIT/mullikine/blob-uploader-terraform
