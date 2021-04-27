@@ -1,4 +1,5 @@
-* TODO Modify this configuration to use Ubuntu 20.04
+* DONE Modify this configuration to use Ubuntu 20.04
+  CLOSED: [2021-04-27 Tue 17:56]
 $MYGIT/mullikine/blob-uploader-terraform/launch-configuration.tf
 
 ** It autoscales using a separate autoscaling group resource
