@@ -20,6 +20,7 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
   # https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-install.html
   # [[egr:ubuntu terraform ECS_CLUSTER]]
   # [[egr:"launch-configuration.tf" ubuntu 20]]
+  # [[egr:aws_launch_configuration ubuntu 20]]
   user_data                   = <<EOF
                                   #!/bin/bash
                                   echo ECS_CLUSTER=${var.ecs_cluster} >> /etc/ecs/ecs.config
