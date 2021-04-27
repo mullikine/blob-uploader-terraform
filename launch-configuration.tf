@@ -25,6 +25,8 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
   # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
   # UserData is supposed to run on launch for an EC2 instance
   # This has not been confirmed yet to be running
+  # The user_data appeared to keep its indentation. I removed all indentation
+  # from the HEREDOC so that there is no trouble for the #! line
   user_data                   = <<EOF
 #!/bin/bash
 sudo mkdir -m 777 -p /etc/ecs; sudo chown $USER:$USER /etc/ecs
