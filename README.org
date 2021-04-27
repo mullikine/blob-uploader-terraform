@@ -7,7 +7,7 @@ This project is based on the following blog article
 
 ** Prerequisites
 
-Install Terraform. This repo as been tested on version v0.12.2
+Install Terraform. This repo as been tested on version Terraform v0.14.0-dev.
 
 Set up an AWS account and add a new IAM user with admin privilege.
 Generate a new key pair for that user called =blob_uploader_key_pair=.
