@@ -1,3 +1,5 @@
+# https://letslearndevops.com/2018/08/23/terraform-get-latest-centos-ami/
+
 # Get the latest ECS AMI
 data "aws_ami" "latest_ecs" {
   most_recent = true

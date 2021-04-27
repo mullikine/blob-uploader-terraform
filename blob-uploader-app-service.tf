@@ -7,8 +7,14 @@ resource "aws_ecs_service" "blob_uploader_app_service" {
   desired_count   = var.desired_capacity
   deployment_minimum_healthy_percent = "50"
   deployment_maximum_percent = "100"
+
+  # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service#ignoring-changes-to-desired-count
+
   lifecycle {
-    ignore_changes = ["task_definition"]
+    # Create an ECS service with an initial count of running instances, then
+    # ignore any changes to that count caused externally (e.g. Application
+    # Autoscaling).
+    ignore_changes = [task_definition,desired_count]
   }
 
   load_balancer {
