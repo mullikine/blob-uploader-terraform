@@ -14,6 +14,24 @@ Generate a new key pair for that user called =blob_uploader_key_pair=.
 Copy the =blob_uploader_key_pair.pem= to your =~/.ssh= directory and set
 the permissions like so: =chmod 400 ~/.ssh/blob_uploader_key_pair.pem=.
 
+#+BEGIN_SRC bash -n :i bash :async :results verbatim code
+  upd aws iam list-access-keys --user-name Administrator
+#+END_SRC
+
+#+RESULTS:
+#+begin_src bash
+{
+    "AccessKeyMetadata": [
+        {
+            "UserName": "Administrator",
+            "AccessKeyId": "AKIAR55HCH7KHAZZT4OV",
+            "Status": "Active",
+            "CreateDate": "2021-04-27T06:23:32Z"
+        }
+    ]
+}
+#+end_src
+
 $HOME/hc/aws/27.04.21__1619503705-cd-notes-aws-iam-create-login-profile-user-name-administrator-password-foo-ja-t3chies7pa4pho9eex3chie-zsh.txt
 $HOME/hc/aws/26.04.21__1619395768-cd-mygit-mullikine-code-org-tidbits-aws-iam-create-access-key-user-name-administrator-ci.txt
 $HOME/hc/aws/26.04.21__1619409964-cd-mygit-mullikine-code-org-tidbits-aws-ec2-create-key-pair-key-name-adminkey-zsh.txt
