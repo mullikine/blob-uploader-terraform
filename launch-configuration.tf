@@ -21,6 +21,8 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
   # [[egr:ubuntu terraform ECS_CLUSTER]]
   # [[egr:"launch-configuration.tf" ubuntu 20]]
   # [[egr:aws_launch_configuration ubuntu 20]]
+
+  # This has not been confirmed yet to be running
   user_data                   = <<EOF
                                   #!/bin/bash
                                   sudo mkdir -m 777 -p /etc/ecs
