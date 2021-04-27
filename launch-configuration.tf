@@ -23,6 +23,7 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
   # [[egr:aws_launch_configuration ubuntu 20]]
   user_data                   = <<EOF
                                   #!/bin/bash
+                                  sudo mkdir -m 777 -p /etc/ecs
                                   echo ECS_CLUSTER=${var.ecs_cluster} >> /etc/ecs/ecs.config
                                   mkdir -p /mnt/efs/postgres
                                   cd /mnt
