@@ -25,9 +25,9 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
   # This has not been confirmed yet to be running
   user_data                   = <<EOF
                                   #!/bin/bash
-                                  sudo mkdir -m 777 -p /etc/ecs; sudo chown $USER:USER /etc/ecs
+                                  sudo mkdir -m 777 -p /etc/ecs; sudo chown $USER:$USER /etc/ecs
                                   echo ECS_CLUSTER=${var.ecs_cluster} >> /etc/ecs/ecs.config
-                                  sudo -u $USER mkdir -p /mnt/efs/postgres
+                                  sudo mkdir -p /mnt/efs/postgres; sudo chown $USER:$USER /mnt/efs/postgres
                                   cd /mnt
                                   # sudo yum install -y amazon-efs-utils
                                   (
