@@ -26,23 +26,23 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
   # UserData is supposed to run on launch for an EC2 instance
   # This has not been confirmed yet to be running
   user_data                   = <<EOF
-                                  #!/bin/bash
-                                  sudo mkdir -m 777 -p /etc/ecs; sudo chown $USER:$USER /etc/ecs
-                                  echo ECS_CLUSTER=${var.ecs_cluster} >> /etc/ecs/ecs.config
-                                  sudo mkdir -p /mnt/efs/postgres; sudo chown $USER:$USER /mnt/efs/postgres
-                                  cd /mnt
-                                  # sudo yum install -y amazon-efs-utils
-                                  (
-                                  sudo apt-get update
-                                  sudo apt-get -y install git binutils
-                                  sudo chmod 777 /mnt
-                                  git clone https://github.com/aws/efs-utils
-                                  cd efs-utils
-                                  ./build-deb.sh
-                                  sudo sh -c 'apt-get update && apt-get install stunnel4'
-                                  sudo apt-get -y install ./build/amazon-efs-utils*deb
-                                  )
+#!/bin/bash
+sudo mkdir -m 777 -p /etc/ecs; sudo chown $USER:$USER /etc/ecs
+echo ECS_CLUSTER=${var.ecs_cluster} >> /etc/ecs/ecs.config
+sudo mkdir -p /mnt/efs/postgres; sudo chown $USER:$USER /mnt/efs/postgres
+cd /mnt
+# sudo yum install -y amazon-efs-utils
+(
+sudo apt-get update
+sudo apt-get -y install git binutils
+sudo chmod 777 /mnt
+git clone https://github.com/aws/efs-utils
+cd efs-utils
+./build-deb.sh
+sudo sh -c 'apt-get update && apt-get install stunnel4'
+sudo apt-get -y install ./build/amazon-efs-utils*deb
+)
 
-                                  sudo mount -t efs ${aws_efs_mount_target.blobdbefs-mnt.0.dns_name}:/ efs
-                                  EOF
+sudo mount -t efs ${aws_efs_mount_target.blobdbefs-mnt.0.dns_name}:/ efs
+EOF
 }
