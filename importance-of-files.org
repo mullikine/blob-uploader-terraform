@@ -1,7 +1,7 @@
 * =docker-compose.yml=
 $MYGIT/mullikine/blob-uploader/docker-compose.yml
 
-This does not run because.
+This is used for testing, instead of =ECR=.
 
 * application-load-balancer.tf
 * autoscaling-group.tf
