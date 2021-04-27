@@ -37,6 +37,7 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
                                   git clone https://github.com/aws/efs-utils
                                   cd efs-utils
                                   ./build-deb.sh
+                                  sudo sh -c 'apt-get update && apt-get install stunnel4'
                                   sudo apt-get -y install ./build/amazon-efs-utils*deb
                                   )
 
