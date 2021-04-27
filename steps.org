@@ -1,0 +1,11 @@
+* TODO 
+#+BEGIN_SRC sh -n :sps bash :async :results none
+  cd $MYGIT/mullikine/blob-uploader-terraform
+  terraform init
+  terraform plan
+  terraform apply
+#+END_SRC
+
+#+BEGIN_SRC sh -n :sps bash :async :results none
+  cd "$MYGIT/mullikine/blob-uploader"; ./deploy.sh
+#+END_SRC
