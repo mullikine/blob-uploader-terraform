@@ -1,26 +1,29 @@
-* =docker-compose.yml=
+
+* $MYGIT/mullikine/blob-uploader
+** =docker-compose.yml=
 $MYGIT/mullikine/blob-uploader/docker-compose.yml
 
 This is used for testing locally, instead of =ECR=, which is used in production.
 
-* application-load-balancer.tf
-* autoscaling-group.tf
-* blob-uploader-app-service.tf
-* blob-uploader-app-task-definition.tf
-* blob-uploader-db-service.tf
-* blob-uploader-db-task-definition.tf
-* cloud-watch.tf
-* cluster.tf
-* data.tf
-* ecs-instance-role.tf
-* ecs-service-autoscaling.tf
-* ecs-service-role.tf
-* efs.tf
-* graph.png
-* launch-configuration.tf
-* network-load-balancer.tf
-* output.tf
-* provider.tf
-* terraform.tfvars
-* variables.tf
-* vpc.tf
+* $MYGIT/mullikine/blob-uploader-terraform
+** application-load-balancer.tf
+** autoscaling-group.tf
+** blob-uploader-app-service.tf
+** blob-uploader-app-task-definition.tf
+** blob-uploader-db-service.tf
+** blob-uploader-db-task-definition.tf
+** cloud-watch.tf
+** cluster.tf
+** data.tf
+** ecs-instance-role.tf
+** ecs-service-autoscaling.tf
+** ecs-service-role.tf
+** efs.tf
+** graph.png
+** launch-configuration.tf
+** network-load-balancer.tf
+** output.tf
+** provider.tf
+** terraform.tfvars
+** variables.tf
+** vpc.tf
