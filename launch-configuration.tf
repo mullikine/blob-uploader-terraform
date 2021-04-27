@@ -33,6 +33,7 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
                                   (
                                   sudo apt-get update
                                   sudo apt-get -y install git binutils
+                                  sudo chmod 777 /mnt
                                   git clone https://github.com/aws/efs-utils
                                   cd efs-utils
                                   ./build-deb.sh
