@@ -1,4 +1,11 @@
+* =docker-compose.yml=
+$MYGIT/mullikine/blob-uploader/docker-compose.yml
+
+This does not run because.
+
 * application-load-balancer.tf
+
+
 * autoscaling-group.tf
 * blob-uploader-app-service.tf
 * blob-uploader-app-task-definition.tf
