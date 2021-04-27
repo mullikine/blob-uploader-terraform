@@ -1,5 +1,6 @@
 # You may need to edit these variables to match your config
 db_password= "password"
+# I must create this cluster
 ecs_cluster="blob_uploader_cluster"
 ecs_key_pair_name="blob_uploader_key_pair"
 region= "us-west-1"
