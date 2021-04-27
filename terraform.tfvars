@@ -2,7 +2,7 @@
 db_password= "password"
 ecs_cluster="blob_uploader_cluster"
 ecs_key_pair_name="blob_uploader_key_pair"
-region= "eu-west-1"
+region= "us-west-1"
 blob_uploader_app_image= "mullikine/blob-uploader-app:latest"
 
 # no need to change these unless you want to
