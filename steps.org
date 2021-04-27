@@ -1,4 +1,4 @@
-* TODO 
+* TODO Create the cluster
 #+BEGIN_SRC sh -n :sps bash :async :results none
   cd $MYGIT/mullikine/blob-uploader-terraform
   terraform init
@@ -6,6 +6,7 @@
   terraform apply
 #+END_SRC
 
+* TODO Deploy to the cluster
 #+BEGIN_SRC sh -n :sps bash :async :results none
   cd "$MYGIT/mullikine/blob-uploader"; ./deploy.sh
 #+END_SRC
