@@ -1,6 +1,9 @@
 * TODO Modify this configuration to use Ubuntu 20.04
 $MYGIT/mullikine/blob-uploader-terraform/launch-configuration.tf
 
+** It autoscales using a separate autoscaling group resource
+$MYGIT/mullikine/blob-uploader-terraform/autoscaling-group.tf
+
 * TODO Create the cluster
 #+BEGIN_SRC sh -n :sps bash :async :results none
   cd $MYGIT/mullikine/blob-uploader-terraform
