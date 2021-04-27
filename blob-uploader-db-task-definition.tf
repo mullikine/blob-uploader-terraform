@@ -1,10 +1,10 @@
-data "aws_ecs_task_definition" "film_ratings_db" {
-  task_definition = aws_ecs_task_definition.film_ratings_db.family
-  depends_on = ["aws_ecs_task_definition.film_ratings_db"]
+data "aws_ecs_task_definition" "blob_uploader_db" {
+  task_definition = aws_ecs_task_definition.blob_uploader_db.family
+  depends_on = ["aws_ecs_task_definition.blob_uploader_db"]
 }
 
-resource "aws_ecs_task_definition" "film_ratings_db" {
-  family                = "film_ratings_db"
+resource "aws_ecs_task_definition" "blob_uploader_db" {
+  family                = "blob_uploader_db"
   volume {
     name = "filmdbvolume"
     host_path = "/mnt/efs/postgres"
@@ -13,7 +13,7 @@ resource "aws_ecs_task_definition" "film_ratings_db" {
   container_definitions = <<DEFINITION
 [
   {
-    "name": "film_ratings_db",
+    "name": "blob_uploader_db",
     "image": "postgres:alpine",
     "essential": true,
     "portMappings": [
@@ -45,7 +45,7 @@ resource "aws_ecs_task_definition" "film_ratings_db" {
     "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "film_ratings_db",
+          "awslogs-group": "blob_uploader_db",
           "awslogs-region": "${var.region}",
           "awslogs-stream-prefix": "ecs"
         }

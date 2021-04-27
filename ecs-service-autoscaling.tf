@@ -1,10 +1,10 @@
 resource "aws_appautoscaling_target" "ecs_filmapp_target" {
   max_capacity       = 2
   min_capacity       = 1
-  resource_id        = "service/film_ratings_cluster/film_ratings_app_service"
+  resource_id        = "service/blob_uploader_cluster/film_ratings_app_service"
   scalable_dimension = "ecs:service:DesiredCount"
   service_namespace  = "ecs"
-  depends_on      = [ "aws_ecs_service.film_ratings_app_service"]
+  depends_on      = [ "aws_ecs_service.blob_uploader_app_service"]
 }
 
 # resource "aws_appautoscaling_policy" "ecs_policy" {

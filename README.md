@@ -9,9 +9,9 @@ Install Terraform. This repo as been tested on version v0.12.2
 
 Set up an AWS account and add a new IAM user with admin
 privilege. Generate a new key pair for that user called
-`film_ratings_key_pair`. Copy the `film_ratings_key_pair.pem` to your
+`blob_uploader_key_pair`. Copy the `film_ratings_key_pair.pem` to your
 `~/.ssh` directory and set the permissions like so: `chmod 400
-~/.ssh/film_ratings_key_pair.pem`.
+~/.ssh/blob_uploader_key_pair.pem`.
 
 ## Initialise Terraform
 

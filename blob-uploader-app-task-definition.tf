@@ -1,15 +1,15 @@
-data "aws_ecs_task_definition" "film_ratings_app" {
-  task_definition = aws_ecs_task_definition.film_ratings_app.family
-  depends_on = ["aws_ecs_task_definition.film_ratings_app"]
+data "aws_ecs_task_definition" "blob_uploader_app" {
+  task_definition = aws_ecs_task_definition.blob_uploader_app.family
+  depends_on = ["aws_ecs_task_definition.blob_uploader_app"]
 }
 
-resource "aws_ecs_task_definition" "film_ratings_app" {
-  family                = "film_ratings_app"
+resource "aws_ecs_task_definition" "blob_uploader_app" {
+  family                = "blob_uploader_app"
   container_definitions = <<DEFINITION
 [
   {
-    "name": "film_ratings_app",
-    "image": "${var.film_ratings_app_image}",
+    "name": "blob_uploader_app",
+    "image": "${var.blob_uploader_app_image}",
     "essential": true,
     "portMappings": [
       {
@@ -20,7 +20,7 @@ resource "aws_ecs_task_definition" "film_ratings_app" {
     "environment": [
       {
         "name": "DB_HOST",
-        "value": "${aws_lb.film_ratings_nw_load_balancer.dns_name}"
+        "value": "${aws_lb.blob_uploader_nw_load_balancer.dns_name}"
       },
       {
         "name": "DB_PASSWORD",
@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "film_ratings_app" {
     "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "film_ratings_app",
+          "awslogs-group": "blob_uploader_app",
           "awslogs-region": "${var.region}",
           "awslogs-stream-prefix": "ecs"
         }

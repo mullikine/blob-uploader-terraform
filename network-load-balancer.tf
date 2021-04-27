@@ -1,20 +1,20 @@
-resource "aws_lb" "film_ratings_nw_load_balancer" {
-  name               = "film-ratings-nw-load-balancer"
+resource "aws_lb" "blob_uploader_nw_load_balancer" {
+  name               = "blob-uploader-nw-load-balancer"
   internal           = true
   load_balancer_type = "network"
-  subnets            = [aws_subnet.film_ratings_public_sn_01.id, aws_subnet.film_ratings_public_sn_02.id]
+  subnets            = [aws_subnet.blob_uploader_public_sn_01.id, aws_subnet.film_ratings_public_sn_02.id]
 
   tags = {
-    Name = "film-ratings-nw-load-balancer"
+    Name = "blob-uploader-nw-load-balancer"
   }
 
 }
 
-resource "aws_lb_target_group" "film_ratings_db_target_group" {
-  name                = "film-ratings-db-target-group"
+resource "aws_lb_target_group" "blob_uploader_db_target_group" {
+  name                = "blob-uploader-db-target-group"
   port                = "5432"
   protocol            = "TCP"
-  vpc_id              = aws_vpc.film_ratings_vpc.id
+  vpc_id              = aws_vpc.blob_uploader_vpc.id
   target_type         = "ip"
 
   health_check {
@@ -26,17 +26,17 @@ resource "aws_lb_target_group" "film_ratings_db_target_group" {
   }
 
   tags = {
-    Name = "film-ratings-db-target-group"
+    Name = "blob-uploader-db-target-group"
   }
 }
 
-resource "aws_lb_listener" "film_ratings_nw_listener" {
-  load_balancer_arn = aws_lb.film_ratings_nw_load_balancer.arn
+resource "aws_lb_listener" "blob_uploader_nw_listener" {
+  load_balancer_arn = aws_lb.blob_uploader_nw_load_balancer.arn
   port              = "5432"
   protocol          = "TCP"
 
   default_action {
-    target_group_arn = aws_lb_target_group.film_ratings_db_target_group.arn
+    target_group_arn = aws_lb_target_group.blob_uploader_db_target_group.arn
     type             = "forward"
   }
 }

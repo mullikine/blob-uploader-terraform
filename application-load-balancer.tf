@@ -1,18 +1,18 @@
-resource "aws_alb" "film_ratings_alb_load_balancer" {
-  name                = "film-ratings-alb-load-balancer"
-  security_groups     = [aws_security_group.film_ratings_public_sg.id]
-  subnets             = [aws_subnet.film_ratings_public_sn_01.id, aws_subnet.film_ratings_public_sn_02.id]
+resource "aws_alb" "blob_uploader_alb_load_balancer" {
+  name                = "blob-uploader-alb-load-balancer"
+  security_groups     = [aws_security_group.blob_uploader_public_sg.id]
+  subnets             = [aws_subnet.blob_uploader_public_sn_01.id, aws_subnet.film_ratings_public_sn_02.id]
 
   tags = {
-    Name = "film-ratings-alb-load-balancer"
+    Name = "blob-uploader-alb-load-balancer"
   }
 }
 
-resource "aws_alb_target_group" "film_ratings_app_target_group" {
-  name                = "film-ratings-app-target-group"
+resource "aws_alb_target_group" "blob_uploader_app_target_group" {
+  name                = "blob-uploader-app-target-group"
   port                =  3000
   protocol            = "HTTP"
-  vpc_id              = aws_vpc.film_ratings_vpc.id
+  vpc_id              = aws_vpc.blob_uploader_vpc.id
   deregistration_delay = "10"
 
   health_check {
@@ -30,23 +30,23 @@ resource "aws_alb_target_group" "film_ratings_app_target_group" {
   }
 
   tags = {
-    Name = "film-ratings-app-target-group"
+    Name = "blob-uploader-app-target-group"
   }
 }
 
 resource "aws_alb_listener" "alb-listener" {
-  load_balancer_arn = aws_alb.film_ratings_alb_load_balancer.arn
+  load_balancer_arn = aws_alb.blob_uploader_alb_load_balancer.arn
   port              = "80"
   protocol          = "HTTP"
 
   default_action {
-    target_group_arn = aws_alb_target_group.film_ratings_app_target_group.arn
+    target_group_arn = aws_alb_target_group.blob_uploader_app_target_group.arn
     type             = "forward"
   }
 }
 
 resource "aws_autoscaling_attachment" "asg_attachment_film_rating_app" {
-  autoscaling_group_name = "film-ratings-autoscaling-group"
-  alb_target_group_arn   = aws_alb_target_group.film_ratings_app_target_group.arn
-  depends_on = [ "aws_autoscaling_group.film-ratings-autoscaling-group" ]
+  autoscaling_group_name = "blob-uploader-autoscaling-group"
+  alb_target_group_arn   = aws_alb_target_group.blob_uploader_app_target_group.arn
+  depends_on = [ "aws_autoscaling_group.blob-uploader-autoscaling-group" ]
 }
