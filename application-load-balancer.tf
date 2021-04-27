@@ -48,5 +48,5 @@ resource "aws_alb_listener" "alb-listener" {
 resource "aws_autoscaling_attachment" "asg_attachment_blob_uploader_app" {
   autoscaling_group_name = "blob-uploader-autoscaling-group"
   alb_target_group_arn   = aws_alb_target_group.blob_uploader_app_target_group.arn
-  depends_on = [ "aws_autoscaling_group.blob-uploader-autoscaling-group" ]
+  depends_on = [ aws_autoscaling_group.blob-uploader-autoscaling-group ]
 }
